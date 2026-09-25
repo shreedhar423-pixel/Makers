@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-garamond: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Garamond, Georgia, serif;
+  }
+}
+
+/* Custom Palette Utility Helpers */
+.font-serif {
+  font-family: 'Playfair Display', 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Georgia, serif;
+}
+
+/* Creative Calligraphy font for artistic accents and background watermarks */
+.font-calligraphy {
+  font-family: 'Pinyon Script', 'Great Vibes', 'Alex Brush', 'Parisienne', cursive;
+}
+
+.font-script-creative {
+  font-family: 'Great Vibes', 'Pinyon Script', 'Alex Brush', cursive;
+}
+
+/* Standard Garamond / Times New Roman Font for vendor numbers and pricing */
+.font-garamond {
+  font-family: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Garamond, Georgia, serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-numbers {
+  font-family: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Garamond, Georgia, serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-price-serif {
+  font-family: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Georgia, serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Script font fallback */
+.font-brock-script {
+  font-family: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Georgia, serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Soft Light Green with Slight Grey Tone (Muted Eucalyptus / Sage Grey) */
+.bg-sage-grey-50 {
+  background-color: #F2F5F3;
+}
+.bg-sage-grey-100 {
+  background-color: #E5EBE7;
+}
+.bg-sage-grey-200 {
+  background-color: #CFDBD3;
+}
+.bg-sage-grey-600 {
+  background-color: #6C7F74;
+}
+.bg-sage-grey-700 {
+  background-color: #586B60;
+}
+.bg-sage-grey-800 {
+  background-color: #43544B;
+}
+
+.text-sage-grey-700 {
+  color: #586B60;
+}
+
+.border-sage-grey-200 {
+  border-color: #CFDBD3;
+}
+
+/* Glassmorphism & Gradient Classes for Transparent Vendor Boxes */
+.glass-box-gradient {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 50%, rgba(244, 239, 230, 0.45) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 38px 0 rgba(40, 55, 45, 0.07);
+}
+
+.glass-box-gradient-hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.72) 50%, rgba(239, 233, 221, 0.55) 100%);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 55px 0 rgba(40, 55, 45, 0.13);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px 0 rgba(40, 55, 45, 0.08);
+}
+
+.glass-panel-hover {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 14px 40px 0 rgba(40, 55, 45, 0.12);
+}
+
+.glass-panel-dark {
+  background: rgba(27, 36, 31, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4EFE6;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4D0C9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9DB0A6;
+}

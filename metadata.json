@@ -1,0 +1,6 @@
+{
+  "name": "MAKERS · Verified Vendor Marketplace",
+  "description": "Phase 1 Booking Request System: Discover verified vendors, submit structured booking requests, WhatsApp business lead routing, SLA tracking, AI budget planner, and admin command center.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
