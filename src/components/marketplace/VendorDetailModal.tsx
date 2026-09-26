@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Vendor, VendorPackage } from '../../types';
 import { VendorTestimonials } from './VendorTestimonials';
+import { SafeImage } from '../common/SafeImage';
 import { 
   X, 
   ShieldCheck, 
@@ -40,13 +41,13 @@ export const VendorDetailModal: React.FC<VendorDetailModalProps> = ({
       {/* Glass Pop-up Window with Transparent Gradient */}
       <div className="bg-gradient-to-br from-white/95 via-white/85 to-[#F5ECE1]/70 backdrop-blur-2xl w-full max-w-4xl rounded-3xl shadow-[0_25px_70px_rgba(30,45,35,0.25)] border border-white/90 overflow-hidden relative flex flex-col max-h-[92vh]">
         {/* Header Bar with Category, Verified Tag, and View Tabs */}
-        <div className="flex flex-wrap items-center justify-between px-6 py-3.5 border-b border-[#EAE3D7]/80 bg-white/80 backdrop-blur-md sticky top-0 z-20 gap-3">
+        <div className="flex flex-wrap items-center justify-between px-4 sm:px-6 py-3.5 border-b border-[#EAE3D7]/80 bg-white/80 backdrop-blur-md sticky top-0 z-20 gap-2 sm:gap-3">
           <div className="flex items-center gap-2">
-            <span className="px-3.5 py-1 rounded-full text-xs font-semibold bg-[#EAF0EC] text-[#4F6357] border border-[#CFDBD3]">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#EAF0EC] text-[#4F6357] border border-[#CFDBD3]">
               {vendor.category}
             </span>
             {vendor.verified && (
-              <span className="flex items-center gap-1.5 text-xs font-bold text-[#8A5D33] bg-[#F5ECE1] px-3 py-1 rounded-full border border-[#DFCEBD]">
+              <span className="hidden xs:flex items-center gap-1.5 text-xs font-bold text-[#8A5D33] bg-[#F5ECE1] px-3 py-1 rounded-full border border-[#DFCEBD]">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#9E6B3A]" />
                 MAKERS Verified
               </span>
@@ -57,31 +58,32 @@ export const VendorDetailModal: React.FC<VendorDetailModalProps> = ({
           <div className="flex items-center gap-1.5 bg-[#ECE6DC]/80 p-1 rounded-2xl border border-[#DDD5C7]">
             <button
               onClick={() => setActiveViewTab('packages')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold min-h-[38px] transition ${
                 activeViewTab === 'packages'
                   ? 'bg-white text-[#1F2C23] shadow-xs'
                   : 'text-[#63796D] hover:text-[#1F2C23]'
               }`}
             >
               <Package className="w-3.5 h-3.5" />
-              <span>Packages & Rates</span>
+              <span>Packages</span>
             </button>
             <button
               onClick={() => setActiveViewTab('testimonials')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold min-h-[38px] transition ${
                 activeViewTab === 'testimonials'
                   ? 'bg-white text-[#1F2C23] shadow-xs'
                   : 'text-[#63796D] hover:text-[#1F2C23]'
               }`}
             >
               <MessageSquareQuote className="w-3.5 h-3.5 text-[#7A8E82]" />
-              <span>Testimonials ({vendor.reviewCount})</span>
+              <span>Reviews ({vendor.reviewCount})</span>
             </button>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full text-[#6B7E73] hover:text-[#1F2923] hover:bg-white/80 transition"
+            className="p-2 rounded-full text-[#6B7E73] hover:text-[#1F2923] hover:bg-white/80 transition min-w-[40px] min-h-[40px] flex items-center justify-center cursor-pointer"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -93,9 +95,10 @@ export const VendorDetailModal: React.FC<VendorDetailModalProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-7">
             <div className="lg:col-span-7 space-y-3.5">
               <div className="h-72 w-full rounded-2xl overflow-hidden bg-[#ECE6DC] border border-white shadow-inner">
-                <img 
+                <SafeImage 
                   src={selectedImage} 
                   alt={vendor.name} 
+                  categoryHint={vendor.category}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -105,11 +108,16 @@ export const VendorDetailModal: React.FC<VendorDetailModalProps> = ({
                     <button
                       key={idx}
                       onClick={() => setSelectedImage(img)}
-                      className={`w-20 h-14 rounded-xl overflow-hidden shrink-0 border-2 transition ${
+                      className={`w-20 h-14 rounded-xl overflow-hidden shrink-0 border-2 transition cursor-pointer ${
                         selectedImage === img ? 'border-[#7A8E82] ring-2 ring-[#7A8E82]/20' : 'border-white/80 opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt="thumbnail" className="w-full h-full object-cover" />
+                      <SafeImage 
+                        src={img} 
+                        alt="thumbnail" 
+                        categoryHint={vendor.category}
+                        className="w-full h-full object-cover" 
+                      />
                     </button>
                   ))}
                 </div>
@@ -286,20 +294,22 @@ export const VendorDetailModal: React.FC<VendorDetailModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="px-6 py-4 bg-white/85 backdrop-blur-md border-t border-[#EAE3D7] flex items-center justify-between">
-          <div className="text-xs text-[#63796D] flex items-baseline gap-1.5">
+        <div className="px-4 sm:px-6 py-4 bg-white/90 backdrop-blur-md border-t border-[#EAE3D7] flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+          <div className="text-xs text-[#63796D] flex items-baseline gap-1.5 w-full sm:w-auto justify-between sm:justify-start">
             <span>Starting Package: </span>
-            <span className="text-sm font-semibold text-[#8C5E33]">₹</span>
-            <strong className="font-garamond text-2xl text-[#8C5E33] font-bold tabular-nums">
-              {vendor.startingPrice.toLocaleString('en-IN')}
-            </strong>
+            <div className="flex items-baseline gap-0.5">
+              <span className="text-sm font-semibold text-[#8C5E33]">₹</span>
+              <strong className="font-garamond text-2xl text-[#8C5E33] font-bold tabular-nums">
+                {vendor.startingPrice.toLocaleString('en-IN')}
+              </strong>
+            </div>
           </div>
           <button
             onClick={() => {
               const matchedPkg = vendor.packages.find(p => p.id === activePackageTab) || vendor.packages[0];
               onRequestBookingWithPackage?.(matchedPkg);
             }}
-            className="px-6 py-2.5 bg-[#7A8E82] hover:bg-[#687C70] text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2 active:scale-95 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 bg-[#7A8E82] hover:bg-[#687C70] text-white font-bold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2 active:scale-95 cursor-pointer min-h-[44px]"
           >
             <span>Proceed to Booking Request</span>
             <ArrowRight className="w-4 h-4 text-amber-200" />

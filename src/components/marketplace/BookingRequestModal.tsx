@@ -3,6 +3,7 @@ import { Vendor, VendorPackage } from '../../types';
 import { DISTRICTS } from '../../data/mockData';
 import { useBooking } from '../../context/BookingContext';
 import { MakersLogo } from '../common/MakersLogo';
+import { SafeImage } from '../common/SafeImage';
 import confetti from 'canvas-confetti';
 import { 
   X, 
@@ -218,8 +219,13 @@ export const BookingRequestModal: React.FC<BookingRequestModalProps> = ({
           <div className="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
             {/* Vendor Mini Banner */}
             <div className="flex items-center gap-3.5 p-3.5 bg-white rounded-2xl border border-[#EAE3D7] shadow-2xs">
-              <img src={vendor.imageUrl} alt={vendor.name} className="w-12 h-12 rounded-xl object-cover" />
-              <div>
+              <SafeImage 
+                src={vendor.imageUrl} 
+                alt={vendor.name} 
+                categoryHint={vendor.category}
+                className="w-12 h-12 rounded-xl object-cover shrink-0" 
+              />
+              <div className="min-w-0 flex-1">
                 <h4 className="font-serif text-sm font-bold text-[#1D2B22]">{vendor.name}</h4>
                 <p className="text-[11px] text-[#8A5D33] font-medium">{vendor.tagline}</p>
                 <div className="text-[10px] text-[#63796D] mt-0.5 flex items-center gap-2">

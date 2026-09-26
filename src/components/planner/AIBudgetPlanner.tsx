@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useBooking } from '../../context/BookingContext';
 import { Vendor, EventCategory } from '../../types';
 import { DISTRICTS } from '../../data/mockData';
+import { SafeImage } from '../common/SafeImage';
 import { 
   Sparkles, 
   Users, 
@@ -332,7 +333,12 @@ export const AIBudgetPlanner: React.FC<AIBudgetPlannerProps> = ({ isModal = fals
                           className="p-4 bg-white/80 backdrop-blur-xs rounded-2xl border border-[#EAE3D7] hover:border-[#7A8E82] hover:bg-white transition flex flex-col justify-between space-y-3 shadow-2xs"
                         >
                           <div className="flex items-center gap-3">
-                            <img src={v.imageUrl} alt={v.name} className="w-12 h-12 rounded-xl object-cover" />
+                            <SafeImage 
+                              src={v.imageUrl} 
+                              alt={v.name} 
+                              categoryHint={v.category}
+                              className="w-12 h-12 rounded-xl object-cover" 
+                            />
                             <div className="min-w-0 flex-1">
                               <h5 className="font-serif text-xs font-bold text-[#1D2B22] truncate">{v.name}</h5>
                               <div className="flex items-center gap-1 text-[10px] text-[#63796D] mt-0.5">
@@ -388,29 +394,30 @@ export const AIBudgetPlanner: React.FC<AIBudgetPlannerProps> = ({ isModal = fals
     return (
       <div 
         onClick={onClose}
-        className="fixed inset-0 z-[60] overflow-y-auto bg-black/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200"
+        className="fixed inset-0 z-[60] overflow-y-auto bg-black/60 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 animate-in fade-in duration-200"
       >
         <div 
           onClick={(e) => e.stopPropagation()}
-          className="bg-gradient-to-br from-white/98 via-[#FAF7F2] to-[#F5EDE1]/85 backdrop-blur-2xl w-full max-w-5xl rounded-3xl shadow-2xl border border-white/90 overflow-hidden relative flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200"
+          className="bg-gradient-to-br from-white/98 via-[#FAF7F2] to-[#F5EDE1]/85 backdrop-blur-2xl w-full max-w-5xl rounded-2xl sm:rounded-3xl shadow-2xl border border-white/90 overflow-hidden relative flex flex-col max-h-[94dvh] sm:max-h-[90vh] animate-in zoom-in-95 duration-200"
         >
           {/* Modal Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#EAE3D7] bg-white/80 backdrop-blur-md sticky top-0 z-20">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#EAE3D7] bg-white/90 backdrop-blur-md sticky top-0 z-20">
             <div className="flex items-center gap-2.5">
               <div className="p-1.5 bg-[#EAF0EC] rounded-xl text-[#586B60]">
                 <Sparkles className="w-4 h-4 text-[#8C5E33]" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-[#1D2B22]">Smart Budget Allocation & AI Planner (₹)</h3>
+              <h3 className="font-serif text-base sm:text-lg font-bold text-[#1D2B22]">Smart Budget & AI Planner (₹)</h3>
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full text-[#6B7E73] hover:text-[#1F2923] hover:bg-white transition cursor-pointer"
+              className="p-2 rounded-full text-[#6B7E73] hover:text-[#1F2923] hover:bg-white transition cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center"
+              aria-label="Close budget planner"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          <div className="p-6 sm:p-8 overflow-y-auto">
+          <div className="p-4 sm:p-6 md:p-8 overflow-y-auto">
             {content}
           </div>
         </div>

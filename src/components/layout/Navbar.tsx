@@ -71,15 +71,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
         <div className="flex items-center justify-between h-20 gap-4">
           {/* Logo pinned to the top-left corner */}
           <div 
-            className="cursor-pointer py-1 shrink-0 flex items-center" 
+            className="cursor-pointer py-1 shrink-0 flex items-center max-w-[65vw] sm:max-w-none" 
             onClick={() => setActiveTab('marketplace')}
           >
-            <MakersLogo variant="original" size="md" showTaglines={true} />
+            <div className="hidden sm:block">
+              <MakersLogo variant="original" size="md" showTaglines={true} />
+            </div>
+            <div className="block sm:hidden">
+              <MakersLogo variant="original" size="sm" showTaglines={false} />
+            </div>
           </div>
 
           {/* Right Aligned Navigation Group (Professional standard layout) */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0 ml-auto">
-            {/* Quick Track ID Search */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
+            {/* Quick Track ID Search on larger screens */}
             <form onSubmit={handleIdSearch} className="hidden xl:flex items-center relative w-56">
               <input
                 type="text"
@@ -95,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
             <nav className="hidden lg:flex items-center space-x-2">
               <button
                 onClick={() => setActiveTab('marketplace')}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`flex items-center gap-2 px-3.5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer min-h-[40px] ${
                   activeTab === 'marketplace'
                     ? 'bg-[#7A8E82] text-white shadow-xs'
                     : 'text-[#4A5D52] hover:text-[#1E2621] hover:bg-[#EFE9DD]'
@@ -107,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
 
               <button
                 onClick={() => setActiveTab('tracker')}
-                className={`relative flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`relative flex items-center gap-2 px-3.5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer min-h-[40px] ${
                   activeTab === 'tracker'
                     ? 'bg-[#7A8E82] text-white shadow-xs'
                     : 'text-[#4A5D52] hover:text-[#1E2621] hover:bg-[#EFE9DD]'
@@ -127,36 +132,42 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
               {/* Quick Pop-up trigger for AI Budget Planner */}
               <button
                 onClick={onOpenPlannerModal}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold bg-[#F0EAE1] hover:bg-[#E7DFD4] text-[#855B32] border border-[#D8CCBD] transition shadow-2xs group cursor-pointer"
+                className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-full text-xs font-bold bg-[#F0EAE1] hover:bg-[#E7DFD4] text-[#855B32] border border-[#D8CCBD] transition shadow-2xs group cursor-pointer min-h-[40px]"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#A67849] group-hover:rotate-12 transition-transform" />
                 <span>AI Budget Planner</span>
               </button>
             </nav>
 
-            {/* Medium screens navigation (tablet) */}
+            {/* Medium screens navigation (tablet 768px - 1023px) */}
             <nav className="hidden md:flex lg:hidden items-center space-x-1.5">
               <button
                 onClick={() => setActiveTab('marketplace')}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                  activeTab === 'marketplace' ? 'bg-[#7A8E82] text-white' : 'text-[#4A5D52] hover:bg-[#EFE9DD]'
+                className={`px-3.5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer min-h-[40px] ${
+                  activeTab === 'marketplace' ? 'bg-[#7A8E82] text-white shadow-xs' : 'text-[#4A5D52] hover:bg-[#EFE9DD]'
                 }`}
               >
                 Explore
               </button>
               <button
                 onClick={() => setActiveTab('tracker')}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                  activeTab === 'tracker' ? 'bg-[#7A8E82] text-white' : 'text-[#4A5D52] hover:bg-[#EFE9DD]'
+                className={`px-3.5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer min-h-[40px] flex items-center gap-1 ${
+                  activeTab === 'tracker' ? 'bg-[#7A8E82] text-white shadow-xs' : 'text-[#4A5D52] hover:bg-[#EFE9DD]'
                 }`}
               >
-                Tracker
+                <span>Tracker</span>
+                {pendingCustomerCount > 0 && (
+                  <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-500 text-white">
+                    {pendingCustomerCount}
+                  </span>
+                )}
               </button>
               <button
                 onClick={onOpenPlannerModal}
-                className="px-3 py-1.5 rounded-full text-xs font-bold bg-[#F0EAE1] text-[#855B32] border border-[#D8CCBD] cursor-pointer"
+                className="flex items-center gap-1 px-3 py-2 rounded-full text-xs font-bold bg-[#F0EAE1] text-[#855B32] border border-[#D8CCBD] cursor-pointer min-h-[40px]"
               >
-                AI Planner
+                <Sparkles className="w-3 h-3 text-amber-600" />
+                <span>AI Planner</span>
               </button>
             </nav>
 
@@ -165,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
               <button
                 onClick={() => setSettingsMenuOpen(!settingsMenuOpen)}
                 title="Account, Portals & System Settings"
-                className="p-2.5 rounded-full text-[#5B6D62] hover:text-[#1F2923] hover:bg-[#EFE9DD] transition border border-[#E2DAD0] bg-white/80 shadow-2xs cursor-pointer"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-[#5B6D62] hover:text-[#1F2923] hover:bg-[#EFE9DD] transition border border-[#E2DAD0] bg-white/80 shadow-2xs cursor-pointer"
                 aria-label="Settings and Portals Menu"
               >
                 <MoreVertical className="w-4 h-4" />
@@ -304,17 +315,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#E8E2D6] bg-[#FAF7F2] px-4 pt-2 pb-4 space-y-2 shadow-lg">
-          <form onSubmit={handleIdSearch} className="mb-3">
+        <div className="md:hidden border-t border-[#E8E2D6] bg-[#FAF7F2] px-4 pt-3 pb-6 space-y-2.5 shadow-xl animate-in slide-in-from-top-2 duration-150">
+          <form onSubmit={handleIdSearch} className="mb-2">
             <div className="relative">
               <input
                 type="text"
-                placeholder="Track Booking ID..."
+                placeholder="Track Booking ID (e.g. MK-2026-00472)..."
                 value={searchIdInput}
                 onChange={(e) => setSearchIdInput(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-[#DDD5C7] rounded-xl text-[#242E28]"
+                className="w-full pl-9 pr-3 py-2.5 text-xs bg-white border border-[#DDD5C7] rounded-xl text-[#242E28] min-h-[44px]"
               />
-              <Search className="w-4 h-4 text-[#7A8E82] absolute left-3 top-2.5" />
+              <Search className="w-4 h-4 text-[#7A8E82] absolute left-3 top-3 pointer-events-none" />
             </div>
           </form>
 
@@ -323,14 +334,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
               setActiveTab('marketplace');
               setMobileMenuOpen(false);
             }}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold ${
-              activeTab === 'marketplace' ? 'bg-[#7A8E82] text-white' : 'text-[#4A5D52] hover:bg-[#EFE9DD]'
+            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs font-semibold min-h-[48px] transition ${
+              activeTab === 'marketplace' ? 'bg-[#7A8E82] text-white shadow-xs' : 'text-[#4A5D52] hover:bg-[#EFE9DD] bg-white/70 border border-[#EAE3D7]'
             }`}
           >
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3">
               <Search className="w-4 h-4" />
-              <span>Explore Marketplace</span>
+              <span className="font-bold">Explore Marketplace</span>
             </div>
+            <ChevronRight className="w-4 h-4 opacity-70" />
           </button>
 
           <button
@@ -338,18 +350,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
               setActiveTab('tracker');
               setMobileMenuOpen(false);
             }}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold ${
-              activeTab === 'tracker' ? 'bg-[#7A8E82] text-white' : 'text-[#4A5D52] hover:bg-[#EFE9DD]'
+            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs font-semibold min-h-[48px] transition ${
+              activeTab === 'tracker' ? 'bg-[#7A8E82] text-white shadow-xs' : 'text-[#4A5D52] hover:bg-[#EFE9DD] bg-white/70 border border-[#EAE3D7]'
             }`}
           >
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3">
               <CalendarCheck className="w-4 h-4" />
-              <span>Booking Tracker</span>
+              <span className="font-bold">Booking Tracker</span>
             </div>
-            {pendingCustomerCount > 0 && (
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#966E46] text-white">
-                {pendingCustomerCount}
+            {pendingCustomerCount > 0 ? (
+              <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500 text-white">
+                {pendingCustomerCount} Pending
               </span>
+            ) : (
+              <ChevronRight className="w-4 h-4 opacity-70" />
             )}
           </button>
 
@@ -358,10 +372,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
               onOpenPlannerModal();
               setMobileMenuOpen(false);
             }}
-            className="w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-[#F0EAE1] text-[#855B32]"
+            className="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs font-bold bg-[#F0EAE1] hover:bg-[#E7DFD4] text-[#855B32] border border-[#D8CCBD] min-h-[48px] shadow-2xs transition"
           >
-            <Sparkles className="w-4 h-4 text-[#A67849]" />
-            <span>Open AI Budget Planner</span>
+            <div className="flex items-center gap-3">
+              <Sparkles className="w-4 h-4 text-[#A67849] animate-pulse" />
+              <span>AI Budget & Event Planner</span>
+            </div>
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-[#855B32] font-bold">✨ Magic</span>
           </button>
         </div>
       )}

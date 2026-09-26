@@ -125,7 +125,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Specializing in timeless, editorial-style wedding photojournalism, heritage Illam nuptials, and backwater drone cinematography across Kochi, Kumarakom, and Alleppey.',
     startingPrice: 85000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_wedding_1790353374044.jpg',
+    imageUrl: '/images/minimal_wedding_1790353374044.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
@@ -180,7 +180,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'We curate bespoke culinary journeys tailored for lavish destination weddings, backwater banquets, and private celebrations with locally-sourced organic ingredients and Michelin-trained executive chefs.',
     startingPrice: 120000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_culinary_1790353359572.jpg',
+    imageUrl: '/images/minimal_culinary_1790353359572.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80',
@@ -228,7 +228,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Transforming backwater lakefront resorts, traditional Illams, and beach lawns into ethereal wonderlands with Kerala brass Nilavilakku, temple jasmine, and bespoke structural backdrops.',
     startingPrice: 150000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_event_decor_1790353343323.jpg',
+    imageUrl: '/images/minimal_event_decor_1790353343323.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=800&q=80'
@@ -275,7 +275,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Celebrity bridal glam artists bringing on-location luxury salon services, waterproof airbrush makeup, traditional Kerala temple jewelry setting, and relaxing Ayurvedic therapies.',
     startingPrice: 35000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_makeup_1790353405201.jpg',
+    imageUrl: '/images/minimal_makeup_1790353405201.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80'
@@ -322,7 +322,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Providing world-class DJ entertainment, live fusion Chenda Melam, wireless mics, and state-of-the-art concert acoustic setups that keep dance floors buzzing across Kerala resorts.',
     startingPrice: 65000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_acoustic_1790353433222.jpg',
+    imageUrl: '/images/minimal_acoustic_1790353433222.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80'
@@ -369,7 +369,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Master couturiers crafting heirloom wedding trousseaux, pure gold thread Kasavu bridal sarees, and tailored Italian wool sherwanis with dedicated private salon trials in Thrissur and Kochi.',
     startingPrice: 95000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_fashion_1790353392679.jpg',
+    imageUrl: '/images/minimal_fashion_1790353392679.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80'
@@ -416,9 +416,9 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Flawless execution from concept to conclusion. We handle vendor timelines, backwater houseboat fleets, airport transfers from Kochi & Trivandrum, and day-of execution across Kumarakom resorts and heritage properties.',
     startingPrice: 180000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_courtyard_1790353448035.jpg',
+    imageUrl: '/images/minimal_courtyard_1790353448035.jpg',
     galleryUrls: [
-      '/src/assets/images/minimal_event_decor_1790353343323.jpg',
+      '/images/minimal_event_decor_1790353343323.jpg',
       'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80'
     ],
     verified: true,
@@ -463,7 +463,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'An oasis of gentlemanly refinement offering classic straight-razor hot towel treatments, precision beard sculpting, scalp rejuvenation therapies, and complete pre-wedding groom suites in Calicut & Kochi.',
     startingPrice: 22000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_barber_1790353419510.jpg',
+    imageUrl: '/images/minimal_barber_1790353419510.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80'
@@ -510,9 +510,9 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Creating breathtaking panoramic mountain and tea plantation nuptial setups in Munnar and Vagamon with architectural floral arches and cozy ambient campfires.',
     startingPrice: 140000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_courtyard_1790353448035.jpg',
+    imageUrl: '/images/minimal_courtyard_1790353448035.jpg',
     galleryUrls: [
-      '/src/assets/images/minimal_event_decor_1790353343323.jpg'
+      '/images/minimal_event_decor_1790353343323.jpg'
     ],
     verified: true,
     rating: 4.95,
@@ -548,7 +548,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Curating organic acoustic music sessions, Indian classical violin fusion, and subtle evening lounge soundscapes tailored for serene resort celebrations.',
     startingPrice: 55000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_acoustic_1790353433222.jpg',
+    imageUrl: '/images/minimal_acoustic_1790353433222.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80'
     ],
@@ -586,7 +586,7 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Heritage Malabar culinary artisans specializing in slow-cooked Thalassery dum biryani, live coastal fish tawa fry, and multi-course royal feasts with antique copper serving ware.',
     startingPrice: 110000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_culinary_1790353359572.jpg',
+    imageUrl: '/images/minimal_culinary_1790353359572.jpg',
     galleryUrls: [
       'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'
     ],
@@ -624,9 +624,9 @@ export const INITIAL_VENDORS: Vendor[] = [
     description: 'Curating seamless lakeside wedding experiences with ceremonial boat arrivals, waterside mandap setups, and comprehensive guest concierge logistics across South Kerala.',
     startingPrice: 165000,
     currency: '₹',
-    imageUrl: '/src/assets/images/minimal_event_decor_1790353343323.jpg',
+    imageUrl: '/images/minimal_event_decor_1790353343323.jpg',
     galleryUrls: [
-      '/src/assets/images/minimal_courtyard_1790353448035.jpg'
+      '/images/minimal_courtyard_1790353448035.jpg'
     ],
     verified: true,
     rating: 4.94,
@@ -657,7 +657,7 @@ export const INITIAL_BOOKINGS: BookingRequest[] = [
     vendorName: 'Aura Cinematics & Royal Stills',
     vendorCategory: 'Wedding Photography',
     vendorDistrict: 'Ernakulam',
-    vendorImage: '/src/assets/images/minimal_wedding_1790353374044.jpg',
+    vendorImage: '/images/minimal_wedding_1790353374044.jpg',
     customerName: 'Ananya Menon',
     customerPhoneWhatsApp: '+91 98471 23456',
     customerEmail: 'ananya.menon@example.com',
@@ -711,7 +711,7 @@ export const INITIAL_BOOKINGS: BookingRequest[] = [
     vendorName: 'Artisan Feast Gourmet Banquets',
     vendorCategory: 'Catering & Dining',
     vendorDistrict: 'Ernakulam',
-    vendorImage: '/src/assets/images/minimal_culinary_1790353359572.jpg',
+    vendorImage: '/images/minimal_culinary_1790353359572.jpg',
     customerName: 'Raghav Pillai',
     customerPhoneWhatsApp: '+91 98470 34567',
     customerEmail: 'raghav.p@keralainvest.in',
@@ -775,7 +775,7 @@ export const INITIAL_BOOKINGS: BookingRequest[] = [
     vendorName: 'Botanica & Velvet Floral Decor',
     vendorCategory: 'Venues & Luxury Decor',
     vendorDistrict: 'Alappuzha',
-    vendorImage: '/src/assets/images/minimal_event_decor_1790353343323.jpg',
+    vendorImage: '/images/minimal_event_decor_1790353343323.jpg',
     customerName: 'Dr. Radhika Kurup',
     customerPhoneWhatsApp: '+91 98471 78901',
     customerEmail: 'dr.radhika@kurupmed.com',
@@ -820,7 +820,7 @@ export const INITIAL_BOOKINGS: BookingRequest[] = [
     vendorName: 'Pulse Sound & Electric Beats DJ',
     vendorCategory: 'DJ, Music & Entertainment',
     vendorDistrict: 'Kozhikode',
-    vendorImage: '/src/assets/images/minimal_acoustic_1790353433222.jpg',
+    vendorImage: '/images/minimal_acoustic_1790353433222.jpg',
     customerName: 'Kiran & Sneha Varma',
     customerPhoneWhatsApp: '+91 98470 89012',
     customerEmail: 'varma.celebrations@gmail.com',
@@ -887,7 +887,7 @@ export const INITIAL_BOOKINGS: BookingRequest[] = [
     vendorName: 'Elysian Royal Events & Luxury Coordination',
     vendorCategory: 'Event Coordination & Planning',
     vendorDistrict: 'Kottayam',
-    vendorImage: '/src/assets/images/minimal_courtyard_1790353448035.jpg',
+    vendorImage: '/images/minimal_courtyard_1790353448035.jpg',
     customerName: 'Priyanka Nambiar',
     customerPhoneWhatsApp: '+91 98480 43287',
     customerEmail: 'priyanka.n@mindtech.co',

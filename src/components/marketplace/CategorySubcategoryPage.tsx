@@ -6,6 +6,7 @@ import { VendorCard } from './VendorCard';
 import { VendorDetailModal } from './VendorDetailModal';
 import { BookingRequestModal } from './BookingRequestModal';
 import { MAIN_CATEGORY_LIST } from './MainCategoriesShowcase';
+import { SafeImage } from '../common/SafeImage';
 import { 
   ArrowLeft, 
   Search, 
@@ -66,7 +67,7 @@ export const CategorySubcategoryPage: React.FC<CategorySubcategoryPageProps> = (
       name: categoryName,
       shortTitle: categoryName,
       tagline: 'Curated luxury artisans and verified professionals across Kerala',
-      imageUrl: '/src/assets/images/minimal_event_decor_1790353343323.jpg',
+      imageUrl: '/images/minimal_event_decor_1790353343323.jpg',
       startingPrice: '₹35,000',
       icon: <Sparkles className="w-5 h-5 text-amber-300" />
     };
@@ -184,9 +185,10 @@ export const CategorySubcategoryPage: React.FC<CategorySubcategoryPageProps> = (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_36px_rgba(30,46,36,0.12)] border border-white/60 bg-[#1E2C22]">
           <div className="relative h-64 sm:h-72 w-full overflow-hidden">
-            <img
+            <SafeImage
               src={categoryMeta.imageUrl}
               alt={categoryMeta.name}
+              categoryHint={categoryMeta.name}
               className="w-full h-full object-cover object-center scale-105 filter brightness-90"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#142018]/95 via-[#142018]/80 to-[#142018]/40" />

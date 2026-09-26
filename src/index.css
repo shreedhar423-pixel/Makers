@@ -5,6 +5,44 @@
     --font-serif: 'Playfair Display', 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-garamond: 'EB Garamond', 'Cormorant Garamond', 'Times New Roman', Times, Garamond, Georgia, serif;
+    --app-container-max: 1280px;
+  }
+
+  /* Prevent horizontal scrolling globally and ensure smooth mobile-first fluid layout */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Fluid Responsive Media Scaling */
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mobile-first touch target sizes (min-height 44px on touchable form controls and buttons) */
+  button, input, select, textarea, a {
+    touch-action: manipulation;
   }
 }
 
@@ -78,15 +116,15 @@
 
 /* Glassmorphism & Gradient Classes for Transparent Vendor Boxes */
 .glass-box-gradient {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 50%, rgba(244, 239, 230, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.75) 50%, rgba(244, 239, 230, 0.55) 100%);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 14px 38px 0 rgba(40, 55, 45, 0.07);
 }
 
 .glass-box-gradient-hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.72) 50%, rgba(239, 233, 221, 0.55) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.82) 50%, rgba(239, 233, 221, 0.65) 100%);
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
   border: 1px solid rgba(255, 255, 255, 0.98);
@@ -94,7 +132,7 @@
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.85);
@@ -102,7 +140,7 @@
 }
 
 .glass-panel-hover {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.95);
@@ -110,7 +148,7 @@
 }
 
 .glass-panel-dark {
-  background: rgba(27, 36, 31, 0.78);
+  background: rgba(27, 36, 31, 0.85);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -130,4 +168,39 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #9DB0A6;
+}
+
+/* ==========================================================
+   MOBILE-FIRST MEDIA QUERIES (Mobile < 768px, Tablet 768px-1023px, Desktop 1024px+)
+   ========================================================== */
+
+/* Mobile (Base): Single column flow, fluid spacing, safe padding */
+@media (max-width: 767px) {
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .mobile-modal-sheet {
+    max-height: 92dvh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* Tablet (768px - 1023px): 2-column grids, optimized touch targets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Desktop (1024px+): Multi-column layouts with max container constraint */
+@media (min-width: 1024px) {
+  .desktop-container {
+    max-width: var(--app-container-max);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

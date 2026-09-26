@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useBooking } from '../../context/BookingContext';
 import { BookingRequest, BookingStatus } from '../../types';
+import { SafeImage } from '../common/SafeImage';
 import { 
   CalendarCheck, 
   Search, 
@@ -173,9 +174,14 @@ export const CustomerBookingTracker: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">
-                    <div className="flex items-center gap-3">
-                      <img src={booking.vendorImage} alt={booking.vendorName} className="w-10 h-10 rounded-xl object-cover" />
-                      <div>
+                    <div className="flex items-center gap-3 min-w-0">
+                      <SafeImage 
+                        src={booking.vendorImage} 
+                        alt={booking.vendorName} 
+                        categoryHint={booking.vendorCategory}
+                        className="w-10 h-10 rounded-xl object-cover shrink-0" 
+                      />
+                      <div className="min-w-0">
                         <span className="font-mono text-[10px] font-bold text-[#7A8E82] block">{booking.id}</span>
                         <h4 className="font-serif font-bold text-xs text-[#1D2B22] line-clamp-1">{booking.vendorName}</h4>
                       </div>

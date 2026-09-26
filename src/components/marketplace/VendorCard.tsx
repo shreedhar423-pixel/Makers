@@ -1,6 +1,7 @@
 import React from 'react';
 import { Vendor } from '../../types';
 import { VendorCardReview } from './VendorCardReview';
+import { SafeImage } from '../common/SafeImage';
 import { 
   Star, 
   Clock, 
@@ -36,9 +37,10 @@ export const VendorCard: React.FC<VendorCardProps> = ({
         className="relative h-60 w-full overflow-hidden bg-[#ECE6DC] cursor-pointer" 
         onClick={() => onOpenDetails(vendor, 'packages')}
       >
-        <img 
+        <SafeImage 
           src={vendor.imageUrl} 
           alt={vendor.name} 
+          categoryHint={vendor.category}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
@@ -121,30 +123,30 @@ export const VendorCard: React.FC<VendorCardProps> = ({
         </div>
 
         {/* Pricing in Standard Garamond Numerals & Action Buttons */}
-        <div className="pt-3.5 border-t border-[#EAE3D7] flex items-center justify-between gap-3">
-          <div>
+        <div className="pt-3.5 border-t border-[#EAE3D7] flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
+          <div className="min-w-fit">
             <span className="text-[10px] text-[#7E8F84] uppercase tracking-wider font-semibold block">
               Starting From
             </span>
             <div className="flex items-baseline gap-1 mt-0.5">
               <span className="text-base font-semibold text-[#8C5E33]">₹</span>
               {/* Standard Garamond font for numbers */}
-              <span className="font-garamond text-3xl font-bold text-[#8C5E33] leading-none tabular-nums tracking-tight">
+              <span className="font-garamond text-2xl sm:text-3xl font-bold text-[#8C5E33] leading-none tabular-nums tracking-tight">
                 {vendor.startingPrice.toLocaleString('en-IN')}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <button
               onClick={() => onOpenDetails(vendor, 'packages')}
-              className="px-3.5 py-2 text-xs font-semibold text-[#44564B] bg-white/90 hover:bg-white rounded-xl border border-[#DDD5C7] transition shadow-2xs cursor-pointer"
+              className="flex-1 sm:flex-none px-3.5 py-2.5 text-xs font-semibold text-[#44564B] bg-white/90 hover:bg-white rounded-xl border border-[#DDD5C7] transition shadow-2xs cursor-pointer min-h-[44px] flex items-center justify-center"
             >
               Details
             </button>
             <button
               onClick={() => onRequestBooking(vendor)}
-              className="px-4 py-2 text-xs font-bold text-white bg-[#7A8E82] hover:bg-[#687C70] active:scale-95 shadow-md shadow-[#7A8E82]/20 rounded-xl transition flex items-center gap-1.5 cursor-pointer"
+              className="flex-1 sm:flex-none px-4 py-2.5 text-xs font-bold text-white bg-[#7A8E82] hover:bg-[#687C70] active:scale-95 shadow-md shadow-[#7A8E82]/20 rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[44px]"
             >
               <span>Request</span>
               <ArrowRight className="w-3.5 h-3.5 text-amber-200" />
