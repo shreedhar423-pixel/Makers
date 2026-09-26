@@ -71,14 +71,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
         <div className="flex items-center justify-between h-20 gap-4">
           {/* Logo pinned to the top-left corner */}
           <div 
-            className="cursor-pointer py-1 shrink-0 flex items-center max-w-[65vw] sm:max-w-none" 
+            className="cursor-pointer py-1 shrink-0 flex items-center max-w-[75vw] sm:max-w-none" 
             onClick={() => setActiveTab('marketplace')}
           >
             <div className="hidden sm:block">
               <MakersLogo variant="original" size="md" showTaglines={true} />
             </div>
             <div className="block sm:hidden">
-              <MakersLogo variant="original" size="sm" showTaglines={false} />
+              <MakersLogo variant="original" size="xs" showTaglines={true} />
             </div>
           </div>
 
@@ -316,6 +316,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlannerModal }) => {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[#E8E2D6] bg-[#FAF7F2] px-4 pt-3 pb-6 space-y-2.5 shadow-xl animate-in slide-in-from-top-2 duration-150">
+          <div className="py-2 px-3 bg-white/70 rounded-2xl border border-[#EAE3D7] flex items-center justify-between mb-1">
+            <MakersLogo variant="original" size="xs" showTaglines={true} />
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAF0EC] text-[#4F6357] border border-[#CFDBD3]">
+              Kerala Verified
+            </span>
+          </div>
+
           <form onSubmit={handleIdSearch} className="mb-2">
             <div className="relative">
               <input
